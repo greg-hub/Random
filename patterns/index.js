@@ -58,21 +58,112 @@
 
 
 //basic template
-var myNamespace = (function(){
+// var myNamespace = (function(){
 
-    var myPrivateVar = 0;
-    varPrivateMethod = function (someText) {
-        console.log(someText);
-    };
+//     var myPrivateVar = 0;
+//     varPrivateMethod = function (someText) {
+//         console.log(someText);
+//     };
 
-    return {
-        myPublicVar: "foo",
+//     return {
+//         myPublicVar: "foo",
 
-        myPublicFunction: function (bar) {
-            myPrivateVar++;
-            myPrivateMethod(bar);
-        }
-    };
+//         myPublicFunction: function (bar) {
+//             myPrivateVar++;
+//             myPrivateMethod(bar);
+//         }
+//     };
+// })();
+
+
+// Private methods
+
+var Module = (function () {
+  
+  var privateMethod = function () {
+    // do something
+  };
+
 })();
 
 
+//Understanding “return”
+
+var Module = (function () {
+  
+  return {
+    publicMethod: function () {
+      // code
+    }
+  };
+
+})();
+Module.publicMethod();
+
+
+var myObjLiteral = {
+  defaults: { name: 'Todd' },
+  someMethod: function () {
+    console.log(this.defaults);
+  }
+};
+
+// console.log: Object { name: 'Todd' }
+myObjLiteral.someMethod();
+
+
+//Anonymous Object Literal return
+
+var Module = (function () {
+
+  var privateMethod = function () {};
+  
+  return {
+    publicMethodOne: function () {
+      // I can call `privateMethod()` you know...
+    },
+    publicMethodTwo: function () {
+
+    },
+    publicMethodThree: function () {
+
+    }
+  };
+
+})();
+
+// Locally scoped Object Literal
+
+var Module = (function () {
+
+  // locally scoped Object
+  var myObject = {};
+
+  // declared with `var`, must be "private"
+  var privateMethod = function () {};
+
+  myObject.someMethod = function () {
+    // take it away Mr. Public Method
+  };
+  
+  return myObject;
+
+})();
+
+//Stacked locally scoped Object Literal
+var Module = (function () {
+
+  var privateMethod = function () {};
+
+  var myObject = {
+    someMethod:  function () {
+
+    },
+    anotherMethod:  function () {
+      
+    }
+  };
+  
+  return myObject;
+
+})();
