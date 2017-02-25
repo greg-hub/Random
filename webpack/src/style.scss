@@ -1,0 +1,47 @@
+@import "~susy/sass/susy";
+@import '~breakpoint-sass/stylesheets/breakpoint';
+
+$susy:(
+      columns:12, // grid of 12
+      gutter: 1/4,
+      math: fluid,
+      output: float,
+      gutter-position: split, //gutter on both sides
+);
+
+
+
+//testing styles
+
+
+	body {
+     #grid { @include span(7 of 12);
+   
+	
+        h1 {
+		font-family: sans-serif;
+		  text-align: center;
+	    }
+
+	        h4 {
+		    color: red;
+	        }
+    }
+}
+
+
+
+@include breakpoint(500px){
+        body{
+            background:lightgreen;
+          
+        }
+   
+        
+
+h1 {
+    color:#292222;
+      text-align: center;
+
+    }
+}

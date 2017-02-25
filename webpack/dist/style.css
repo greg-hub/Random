@@ -1,0 +1,19 @@
+body #grid {
+  width: 56.66667%;
+  float: left;
+  margin-left: 0.83333%;
+  margin-right: 0.83333%; }
+  body #grid h1 {
+    font-family: sans-serif;
+    text-align: center; }
+  body #grid h4 {
+    color: red; }
+
+@media (min-width: 500px) {
+  body {
+    background: lightgreen; }
+  h1 {
+    color: #292222;
+    text-align: center; } }
+
+/*# sourceMappingURL=style.css.map*/
